@@ -10,6 +10,7 @@ Searching algorithms: LinearSearch, BinarySearch.
 Some constants:
 
 Alg.MAX - maximum randomized value (random(0, MAX))
+
 Alg.NUM - number of array elements
 
 

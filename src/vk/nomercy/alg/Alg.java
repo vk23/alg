@@ -22,7 +22,7 @@ public class Alg {
 
     private static void testSort() {
         int[] unsorted = Util.generate(NUM, MAX);
-        System.out.format("Unsorted = %s%n", Arrays.toString(unsorted));
+        System.out.format("%n///////////////////////////%nSORTING%nUnsorted = %s%n", Arrays.toString(unsorted));
 
         List<ISort> sortList = new LinkedList<>();
         sortList.add(new BubbleSort());
@@ -54,7 +54,7 @@ public class Alg {
         assert arr.length > 2;
 
         Arrays.sort(arr);
-        System.out.format("Sorted array = %s%n", Arrays.toString(arr));
+        System.out.format("%n///////////////////////////%nSEARCHING%nSorted array = %s%n", Arrays.toString(arr));
 
         List<ISearch> searchList = new LinkedList<>();
         searchList.add(new LinearSearch());

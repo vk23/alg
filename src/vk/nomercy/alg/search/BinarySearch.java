@@ -26,7 +26,7 @@ public class BinarySearch implements ISearch {
         int midIndex = (left + right - 1) / 2;
         int midValue = src[midIndex];
 
-        System.out.format("left=%d, right=%d, mid=%d, midVal=%d%n", left, right, midIndex, midValue);
+//        System.out.format("left=%d, right=%d, mid=%d, midVal=%d%n", left, right, midIndex, midValue);
 
         if (value == midValue) {
             return midIndex;

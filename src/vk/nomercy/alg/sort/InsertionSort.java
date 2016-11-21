@@ -1,0 +1,21 @@
+package vk.nomercy.alg.sort;
+
+import vk.nomercy.alg.Util;
+
+public class InsertionSort implements ISort {
+
+    @Override
+    public int[] sort(int[] src) {
+        int size = src.length;
+
+        for (int i = 1; i < size; i++) {
+            for (int j = i; j > 0 && src[j] < src[j - 1]; j--) {
+                Util.swap(src, j - 1, j);
+            }
+//            System.out.format("After %d pass: %s%n", i + 1, Arrays.toString(src));
+        }
+
+        return src;
+    }
+
+}

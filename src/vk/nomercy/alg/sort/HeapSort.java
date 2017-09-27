@@ -16,7 +16,6 @@ public class HeapSort implements ISort {
             Util.swap(src, 0, i);
             // restore heap property
             siftDown(src, 0, i);
-//            System.out.format("i=%d, arr=%s%n", i, Arrays.toString(src));
         }
 
         return src;
@@ -25,7 +24,6 @@ public class HeapSort implements ISort {
     private void heapify(int[] src, int size) {
         for (int i = size - 1; i > 0; i--) {
             siftDown(src, parentIndex(i), size - 1);
-//            System.out.format("heapify: i=%d, arr=%s%n", i, Arrays.toString(src));
         }
     }
 

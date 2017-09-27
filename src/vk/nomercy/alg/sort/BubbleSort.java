@@ -17,7 +17,6 @@ public class BubbleSort implements ISort {
                     swapped = true;
                 }
             }
-//            System.out.format("After %d pass: %s%n", i + 1, Arrays.toString(src));
             if (!swapped) break;
         }
         return src;

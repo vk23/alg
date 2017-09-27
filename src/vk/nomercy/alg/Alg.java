@@ -1,13 +1,22 @@
 package vk.nomercy.alg;
 
-import org.apache.commons.lang3.time.StopWatch;
-import vk.nomercy.alg.search.BinarySearch;
-import vk.nomercy.alg.search.*;
-import vk.nomercy.alg.sort.*;
-
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import org.apache.commons.lang3.time.StopWatch;
+import vk.nomercy.alg.search.BinarySearch;
+import vk.nomercy.alg.search.ISearch;
+import vk.nomercy.alg.search.LinearSearch;
+import vk.nomercy.alg.sort.BubbleSort;
+import vk.nomercy.alg.sort.HeapSort;
+import vk.nomercy.alg.sort.ISort;
+import vk.nomercy.alg.sort.InsertionSort;
+import vk.nomercy.alg.sort.MergeSort;
+import vk.nomercy.alg.sort.QuickSort;
+import vk.nomercy.alg.sort.SelectionSort;
+import vk.nomercy.alg.sort.ShellSort;
+import vk.nomercy.alg.sort.sequences.HibbardSequence;
+import vk.nomercy.alg.sort.sequences.TokudaSequence;
 
 public class Alg {
 
@@ -15,7 +24,6 @@ public class Alg {
     private static final int NUM = 15000;
 
     public static void main(String... args) {
-
         testSort();
         testSearch();
     }
@@ -28,11 +36,11 @@ public class Alg {
         sortList.add(new BubbleSort());
         sortList.add(new SelectionSort());
         sortList.add(new InsertionSort());
-        sortList.add(new ShellSort(getGapSequence(unsorted.length)));
+        sortList.add(new ShellSort(Util.reverseSequence(new HibbardSequence(unsorted.length))));
+        sortList.add(new ShellSort(Util.reverseSequence(new TokudaSequence(unsorted.length))));
         sortList.add(new MergeSort());
         sortList.add(new HeapSort());
         sortList.add(new QuickSort());
-
 
         for (ISort sort : sortList) {
             System.out.println("\n///////////////////////////");
@@ -79,10 +87,4 @@ public class Alg {
         }
     }
 
-    // pre-calculate and return complete sequence
-    private static List<Integer> getGapSequence(int size) {
-        ShellSort.Sequence sequence = new ShellSort.TokudaSequence(size);
-//        ShellSort.Sequence sequence = new ShellSort.HibbardSequence(size);
-        return sequence.toReversedList();
-    }
 }

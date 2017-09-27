@@ -12,7 +12,6 @@ public class InsertionSort implements ISort {
             for (int j = i; j > 0 && src[j] < src[j - 1]; j--) {
                 Util.swap(src, j - 1, j);
             }
-//            System.out.format("After %d pass: %s%n", i + 1, Arrays.toString(src));
         }
 
         return src;

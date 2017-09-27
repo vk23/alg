@@ -20,7 +20,6 @@ public class SelectionSort implements ISort {
             if (minIndex != i) {
                 Util.swap(src, i, minIndex);
             }
-//            System.out.format("After %d pass: %s%n", i + 1, Arrays.toString(src));
         }
 
         return src;

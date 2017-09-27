@@ -10,14 +10,11 @@ public class MergeSort implements ISort {
         // bottom-up sorting
         for (int step = 1; step < size; step = 2 * step) {
 
-//            System.out.format("%nStep=%d:%n array=%s%n", step, Arrays.toString(src));
             for (int left = 0; left < size; left += 2 * step) {
 
                 int middle = Math.min(left + step, size);
                 int right = Math.min(middle + step, size);
-//                System.out.format("left=%d, middle=%d, right=%d%n", left, middle, right);
                 merge(src, tmp, left, middle, right);
-//                System.out.format("tmp=%s%n", Arrays.toString(tmp));
             }
 
             // TODO: swap roles instead of copying?

@@ -1,6 +1,10 @@
 package vk.nomercy.alg;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
+import vk.nomercy.alg.sort.sequences.Sequence;
 
 public class Util {
 
@@ -18,5 +22,12 @@ public class Util {
         int temp = arr[j];
         arr[j] = arr[i];
         arr[i] = temp;
+    }
+
+    public static List<Integer> reverseSequence(Sequence sequence) {
+        List<Integer> result = new ArrayList<>();
+        sequence.forEach(result::add);
+        Collections.reverse(result);
+        return result;
     }
 }

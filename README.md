@@ -2,13 +2,13 @@
 Some algorithms here: 
 ```sorting, searching```
 
-###Sorting algorithms: 
+##Sorting algorithms: 
 ```BubbleSort, SelectionSort, InsertionSort, ShellSort, MergeSort, HeapSort, QuickSort.```
 
-###Searching algorithms: 
+##Searching algorithms: 
 ```LinearSearch, BinarySearch, InterpolationSearch.```
 
-###Some constants:
+##Some constants:
 ```
 Alg.MAX - maximum random value (random(0, MAX))
 Alg.NUM - number of array elements

@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.commons.lang3.time.StopWatch;
 import vk.nomercy.alg.search.BinarySearch;
 import vk.nomercy.alg.search.ISearch;
+import vk.nomercy.alg.search.InterpolationSearch;
 import vk.nomercy.alg.search.LinearSearch;
 import vk.nomercy.alg.sort.BubbleSort;
 import vk.nomercy.alg.sort.HeapSort;
@@ -20,8 +21,8 @@ import vk.nomercy.alg.sort.sequences.TokudaSequence;
 
 public class Alg {
 
-    private static final int MAX = 10000;
-    private static final int NUM = 15000;
+    private static final int MAX = 1000;
+    private static final int NUM = 1000;
 
     public static void main(String... args) {
         testSort();
@@ -60,13 +61,13 @@ public class Alg {
     private static void testSearch() {
         int[] arr = Util.generate(NUM, MAX);
         assert arr.length > 2;
-
         Arrays.sort(arr);
         System.out.format("%n///////////////////////////%nSEARCHING%nSorted array = %s%n", Arrays.toString(arr));
 
         List<ISearch> searchList = new LinkedList<>();
         searchList.add(new LinearSearch());
         searchList.add(new BinarySearch());
+        searchList.add(new InterpolationSearch());
 
         for (ISearch search : searchList) {
             System.out.println("\n///////////////////////////");

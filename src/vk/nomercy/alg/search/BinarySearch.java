@@ -17,8 +17,8 @@ public class BinarySearch implements ISearch {
      *
      * @return index
      */
-    private int find(int[] src, int left, int right, int value) {
-        int midIndex = (left + right - 1) / 2;
+    protected int find(int[] src, int left, int right, int value) {
+        int midIndex = midIndex(src, left, right, value);
         int midValue = src[midIndex];
 
         if (value == midValue) {
@@ -30,4 +30,7 @@ public class BinarySearch implements ISearch {
             find(src, left, midIndex, value);
     }
 
+    protected int midIndex(int[] src, int left, int right, int value) {
+        return (left + right - 1) / 2;
+    }
 }

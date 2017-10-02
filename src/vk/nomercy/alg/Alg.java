@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import org.apache.commons.lang3.time.StopWatch;
 import vk.nomercy.alg.search.BinarySearch;
+import vk.nomercy.alg.search.ExponentialSearch;
 import vk.nomercy.alg.search.ISearch;
 import vk.nomercy.alg.search.InterpolationSearch;
 import vk.nomercy.alg.search.LinearSearch;
@@ -68,6 +69,7 @@ public class Alg {
         searchList.add(new LinearSearch());
         searchList.add(new BinarySearch());
         searchList.add(new InterpolationSearch());
+        searchList.add(new ExponentialSearch());
 
         for (ISearch search : searchList) {
             System.out.println("\n///////////////////////////");
@@ -77,7 +79,7 @@ public class Alg {
             StopWatch sw = new StopWatch();
             sw.start();
 
-            // let's find the second item from the end
+            // let's search for the second item from the end
             int itemToFind = copy[copy.length - 2];
             int found = search.find(copy, itemToFind);
 

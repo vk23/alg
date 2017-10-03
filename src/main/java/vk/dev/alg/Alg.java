@@ -1,24 +1,24 @@
-package vk.nomercy.alg;
+package vk.dev.alg;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import org.apache.commons.lang3.time.StopWatch;
-import vk.nomercy.alg.search.BinarySearch;
-import vk.nomercy.alg.search.ExponentialSearch;
-import vk.nomercy.alg.search.ISearch;
-import vk.nomercy.alg.search.InterpolationSearch;
-import vk.nomercy.alg.search.LinearSearch;
-import vk.nomercy.alg.sort.BubbleSort;
-import vk.nomercy.alg.sort.HeapSort;
-import vk.nomercy.alg.sort.ISort;
-import vk.nomercy.alg.sort.InsertionSort;
-import vk.nomercy.alg.sort.MergeSort;
-import vk.nomercy.alg.sort.QuickSort;
-import vk.nomercy.alg.sort.SelectionSort;
-import vk.nomercy.alg.sort.ShellSort;
-import vk.nomercy.alg.sort.sequences.HibbardSequence;
-import vk.nomercy.alg.sort.sequences.TokudaSequence;
+import vk.dev.alg.search.BinarySearch;
+import vk.dev.alg.search.ExponentialSearch;
+import vk.dev.alg.search.ISearch;
+import vk.dev.alg.search.InterpolationSearch;
+import vk.dev.alg.search.LinearSearch;
+import vk.dev.alg.sort.BubbleSort;
+import vk.dev.alg.sort.HeapSort;
+import vk.dev.alg.sort.ISort;
+import vk.dev.alg.sort.InsertionSort;
+import vk.dev.alg.sort.MergeSort;
+import vk.dev.alg.sort.QuickSort;
+import vk.dev.alg.sort.SelectionSort;
+import vk.dev.alg.sort.ShellSort;
+import vk.dev.alg.sort.sequences.HibbardSequence;
+import vk.dev.alg.sort.sequences.TokudaSequence;
 
 public class Alg {
 

@@ -1,4 +1,4 @@
-package vk.nomercy.alg.sort;
+package vk.dev.alg.sort;
 
 @FunctionalInterface
 public interface ISort {

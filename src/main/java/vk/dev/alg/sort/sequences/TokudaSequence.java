@@ -1,4 +1,4 @@
-package vk.nomercy.alg.sort.sequences;
+package vk.dev.alg.sort.sequences;
 
 public class TokudaSequence extends Sequence {
 

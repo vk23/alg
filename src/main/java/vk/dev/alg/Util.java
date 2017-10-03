@@ -1,10 +1,10 @@
-package vk.nomercy.alg;
+package vk.dev.alg;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-import vk.nomercy.alg.sort.sequences.Sequence;
+import vk.dev.alg.sort.sequences.Sequence;
 
 public class Util {
 

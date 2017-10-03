@@ -1,4 +1,4 @@
-package vk.nomercy.alg.search;
+package vk.dev.alg.search;
 
 public interface ISearch {
     /**

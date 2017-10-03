@@ -1,7 +1,7 @@
-package vk.nomercy.alg.sort;
+package vk.dev.alg.sort;
 
 import java.util.List;
-import vk.nomercy.alg.Util;
+import vk.dev.alg.Util;
 
 public class ShellSort implements ISort {
 

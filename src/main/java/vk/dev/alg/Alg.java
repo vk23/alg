@@ -47,7 +47,7 @@ public class Alg {
     }
 
     private static void printHelp(Options options) {
-        new HelpFormatter().printHelp("Alg", options);
+        new HelpFormatter().printHelp("java -jar vk.dev.alg.Alg [options]", options);
     }
 
     private static Options options() {

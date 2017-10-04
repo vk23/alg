@@ -1,37 +1,71 @@
 package vk.dev.alg;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import org.apache.commons.cli.*;
 import org.apache.commons.lang3.time.StopWatch;
-import vk.dev.alg.search.BinarySearch;
-import vk.dev.alg.search.ExponentialSearch;
-import vk.dev.alg.search.ISearch;
-import vk.dev.alg.search.InterpolationSearch;
-import vk.dev.alg.search.LinearSearch;
-import vk.dev.alg.sort.BubbleSort;
-import vk.dev.alg.sort.HeapSort;
-import vk.dev.alg.sort.ISort;
-import vk.dev.alg.sort.InsertionSort;
-import vk.dev.alg.sort.MergeSort;
-import vk.dev.alg.sort.QuickSort;
-import vk.dev.alg.sort.SelectionSort;
-import vk.dev.alg.sort.ShellSort;
+import vk.dev.alg.search.*;
+import vk.dev.alg.sort.*;
 import vk.dev.alg.sort.sequences.HibbardSequence;
 import vk.dev.alg.sort.sequences.TokudaSequence;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Alg {
 
-    private static final int MAX = 1000;
-    private static final int NUM = 1000;
+    private static int max;
+    private static int num;
 
     public static void main(String... args) {
-        testSort();
-        testSearch();
+        Options options = options();
+        DefaultParser defaultParser = new DefaultParser();
+        CommandLine appArgs;
+        try {
+            appArgs = defaultParser.parse(options, args);
+            execute(appArgs);
+        } catch (Exception e) {
+            e.printStackTrace();
+            printHelp(options);
+            System.exit(1);
+        }
+    }
+
+    private static void execute(CommandLine appArgs) throws Exception {
+        max = Integer.parseInt(appArgs.getOptionValue("max", "1000"));
+        num = Integer.parseInt(appArgs.getOptionValue("num", "1000"));
+
+        if (appArgs.hasOption("all")) {
+            testSort();
+            testSearch();
+        } else if (appArgs.hasOption("sort")) {
+            testSort();
+        } else if (appArgs.hasOption("search")) {
+            testSearch();
+        } else {
+            throw new IllegalAccessException("Unknown mode");
+        }
+    }
+
+    private static void printHelp(Options options) {
+        new HelpFormatter().printHelp("Alg", options);
+    }
+
+    private static Options options() {
+        Options options = new Options();
+
+        OptionGroup modes = new OptionGroup();
+        modes.addOption(new Option("sort", false, "Run all sorting algorithms"));
+        modes.addOption(new Option("search", false, "Run all searching algorithms"));
+        modes.addOption(new Option("all", false, "Run all algorithms"));
+
+        options.addOptionGroup(modes);
+        options.addOption("max", true, "Generate values from 0 to max");
+        options.addOption("num", true, "Size of array");
+        return options;
     }
 
     private static void testSort() {
-        int[] unsorted = Util.generate(NUM, MAX);
+        int[] unsorted = Util.generate(num, max);
         System.out.format("%n///////////////////////////%nSORTING%nUnsorted = %s%n", Arrays.toString(unsorted));
 
         List<ISort> sortList = new LinkedList<>();
@@ -60,7 +94,7 @@ public class Alg {
     }
 
     private static void testSearch() {
-        int[] arr = Util.generate(NUM, MAX);
+        int[] arr = Util.generate(num, max);
         assert arr.length > 2;
         Arrays.sort(arr);
         System.out.format("%n///////////////////////////%nSEARCHING%nSorted array = %s%n", Arrays.toString(arr));

@@ -26,4 +26,5 @@ jar {
 
 dependencies {
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
+    compile group: 'commons-cli', name: 'commons-cli', version: '1.4'
 }

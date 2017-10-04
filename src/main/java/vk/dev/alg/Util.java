@@ -1,10 +1,11 @@
 package vk.dev.alg;
 
+import vk.dev.alg.sort.sequences.Sequence;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-import vk.dev.alg.sort.sequences.Sequence;
 
 public class Util {
 

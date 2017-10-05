@@ -8,7 +8,6 @@ import vk.dev.alg.sort.sequences.HibbardSequence;
 import vk.dev.alg.sort.sequences.TokudaSequence;
 
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Alg {
@@ -35,12 +34,12 @@ public class Alg {
         num = Integer.parseInt(appArgs.getOptionValue("num", "1000"));
 
         if (appArgs.hasOption("all")) {
-            testSort();
-            testSearch();
+            sort();
+            search();
         } else if (appArgs.hasOption("sort")) {
-            testSort();
+            sort();
         } else if (appArgs.hasOption("search")) {
-            testSearch();
+            search();
         } else {
             throw new IllegalAccessException("Unknown mode");
         }
@@ -57,6 +56,7 @@ public class Alg {
         modes.addOption(new Option("sort", false, "Run all sorting algorithms"));
         modes.addOption(new Option("search", false, "Run all searching algorithms"));
         modes.addOption(new Option("all", false, "Run all algorithms"));
+        modes.setRequired(true);
 
         options.addOptionGroup(modes);
         options.addOption("max", true, "Generate values from 0 to max");
@@ -64,19 +64,20 @@ public class Alg {
         return options;
     }
 
-    private static void testSort() {
+    private static void sort() {
         int[] unsorted = Util.generate(num, max);
         System.out.format("%n///////////////////////////%nSORTING%nUnsorted = %s%n", Arrays.toString(unsorted));
 
-        List<ISort> sortList = new LinkedList<>();
-        sortList.add(new BubbleSort());
-        sortList.add(new SelectionSort());
-        sortList.add(new InsertionSort());
-        sortList.add(new ShellSort(Util.reverseSequence(new HibbardSequence(unsorted.length))));
-        sortList.add(new ShellSort(Util.reverseSequence(new TokudaSequence(unsorted.length))));
-        sortList.add(new MergeSort());
-        sortList.add(new HeapSort());
-        sortList.add(new QuickSort());
+        List<ISort> sortList = Arrays.asList(
+                new BubbleSort(),
+                new SelectionSort(),
+                new InsertionSort(),
+                new ShellSort(Util.reverseSequence(new HibbardSequence(unsorted.length))),
+                new ShellSort(Util.reverseSequence(new TokudaSequence(unsorted.length))),
+                new MergeSort(),
+                new HeapSort(),
+                new QuickSort()
+        );
 
         for (ISort sort : sortList) {
             System.out.println("\n///////////////////////////");
@@ -93,30 +94,30 @@ public class Alg {
         }
     }
 
-    private static void testSearch() {
+    private static void search() {
         int[] arr = Util.generate(num, max);
         assert arr.length > 2;
         Arrays.sort(arr);
         System.out.format("%n///////////////////////////%nSEARCHING%nSorted array = %s%n", Arrays.toString(arr));
 
-        List<ISearch> searchList = new LinkedList<>();
-        searchList.add(new LinearSearch());
-        searchList.add(new BinarySearch());
-        searchList.add(new InterpolationSearch());
-        searchList.add(new ExponentialSearch());
+        List<ISearch> searchList = Arrays.asList(
+                new LinearSearch(),
+                new BinarySearch(),
+                new InterpolationSearch(),
+                new ExponentialSearch()
+        );
 
         for (ISearch search : searchList) {
             System.out.println("\n///////////////////////////");
             System.out.format("Started searching: %s%n", search.getClass().getSimpleName());
             int[] copy = Arrays.copyOf(arr, arr.length);
 
-            StopWatch sw = new StopWatch();
-            sw.start();
-
             // let's search for the second item from the end
             int itemToFind = copy[copy.length - 2];
-            int found = search.find(copy, itemToFind);
 
+            StopWatch sw = new StopWatch();
+            sw.start();
+            int found = search.find(copy, itemToFind);
             sw.stop();
 
             System.out.format("Finished searching in %d ms%n", sw.getTime());
